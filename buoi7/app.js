@@ -1,10 +1,12 @@
 //Get Btn And Create Function
+//Dùng Id myBtn đã tạo bên file HTML sau đó .addEventListener để nghe lệnh click Chuột
 document.getElementById('myBtn').addEventListener('click', getData);
 
 function getData() {
     // console.log('test');
-
+    // In data để test thử function hoạt động tốt không
     //Get API
+    // lấy API
     fetch('https://randomuser.me/api/')
         .then(res => res.json())
         .then(data => {
@@ -12,11 +14,13 @@ function getData() {
 
             let author = data.results;
             // console.log(author);
-
+            // In dữ liệu người dùng
             //Get Data Value
+        // dùng let tạo variable output
             let output = "<h2><center>Get User Data</center></h2>";
 
             //Get Data Loop Through
+        // Tạo list data cần Fetch API
             author.forEach(function (lists) {
                 output += `
                 <div class="container">
@@ -38,6 +42,7 @@ function getData() {
             });
 
             //Show On Our Screen All Data
+        // thể hiển output
             document.getElementById('output').innerHTML = output;
 
         });
